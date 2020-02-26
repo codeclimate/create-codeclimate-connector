@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+
+const CollectorGenerator = require("../lib/CollectorGenerator").default
+const instance = new CollectorGenerator(process.argv.slice(2))
+
+instance.run()
+
