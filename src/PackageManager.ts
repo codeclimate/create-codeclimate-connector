@@ -34,21 +34,21 @@ export abstract class PackageManager {
 
 class Yarn extends PackageManager {
   addDependency(deps: string[]) {
-    this.run( ["add", "--ignore-scripts"].concat(deps))
+    this.run( ["add"].concat(deps))
   }
 
   addDevDependency(deps: string[]) {
-    this.run(["add", "--ignore-scripts", "--dev"].concat(deps))
+    this.run(["add", "--dev"].concat(deps))
   }
 }
 
 class Npm extends PackageManager {
   addDependency(deps: string[]) {
-    this.run(["install", "--ignore-scripts"].concat(deps))
+    this.run(["install", "--save"].concat(deps))
   }
 
   addDevDependency(deps: string[]) {
-    this.run(["install", "--ignore-scripts", "--save-dev"].concat(deps))
+    this.run(["install", "--save-dev"].concat(deps))
   }
 }
 

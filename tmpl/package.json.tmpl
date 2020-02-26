@@ -6,8 +6,7 @@
     "build": "tsc",
     "test": "jest",
     "clean": "rm -rf ./lib/",
-    "prepare": "{{packageManagerBin}} clean && {{packageManagerBin}} build",
-    "prepublishOnly": "{{packageManagerBin}} test"
+    "prepublishOnly": "{{packageManagerBin}} clean && {{packageManagerBin}} build && {{packageManagerBin}} test"
   },
   "files": [
     "lib/**/*",

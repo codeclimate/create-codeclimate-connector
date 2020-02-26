@@ -7,8 +7,7 @@
     "build": "tsc",
     "test": "jest",
     "clean": "rm -rf ./lib/",
-    "prepare": "yarn clean && yarn build",
-    "prepublishOnly": "yarn test"
+    "prepublishOnly": "yarn clean && yarn build && yarn test"
   },
   "files": [
     "bin/**/*",
