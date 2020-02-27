@@ -1,0 +1,25 @@
+# Code Climate Collector: {{collectorSlug}}
+
+TODO - describe your collector here
+
+## Configuration
+
+TODO - describe the configuration your collector uses here.
+
+## Running the collector locally
+
+To run the collector in an integration environment, the
+[`codeclimate-collector-sdk`][sdk] provides a CLI you can use.
+
+1. Write valid configuration to `collector-config.json`.
+2. To ensure the project's current code has been compiled into `./lib` for
+   execution, run `yarn build`.
+3. Then, to run a sync, run the following (replace `YYYY-MM-DD` with the date
+   you want to sync back to):
+
+    ```
+    yarn run codeclimate-collector sync-stream {{collectorSlug}} collector-config.json stream-json-or-null YYYY-MM-DD
+    ```
+
+[sdk]: https://github.com/codeclimate/codeclimate-collector-sdk
+
