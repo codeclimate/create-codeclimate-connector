@@ -1,4 +1,9 @@
-import { buildFakeManager, buildFakeLogger } from "codeclimate-collector-sdk/lib/TestHelpers"
+import { Stream } from "codeclimate-collector-sdk"
+import {
+  buildFakeLogger,
+  buildFakeRecordProducer,
+  buildFakeStateManager,
+} from "codeclimate-collector-sdk/lib/TestHelpers"
 
 import { Client } from "../Client"
 
@@ -9,7 +14,8 @@ describe(Client, () => {
         new Map([
           // TODO - your config keys go here
         ]),
-        buildFakeManager(),
+        buildFakeRecordProducer(),
+        buildFakeStateManager(),
         buildFakeLogger(),
       )
 
@@ -21,7 +27,8 @@ describe(Client, () => {
     test.skip("says invalid config invalid, with errors", () => {
       const client = new Client(
         new Map(),
-        buildFakeManager(),
+        buildFakeRecordProducer(),
+        buildFakeStateManager(),
         buildFakeLogger(),
       )
 
@@ -39,14 +46,22 @@ describe(Client, () => {
         new Map([
           // TODO - your config keys go here
         ]),
-        buildFakeManager(),
+        buildFakeRecordProducer(),
+        buildFakeStateManager(),
         buildFakeLogger(),
       )
 
-      const streamId = "test-stream-id"
+      const stream = new Stream({
+        type: "Stream",
+        attributes: {
+          id: "your-id-here",
+          self: "http://example.com/your-uri-here",
+          name: "your-name-here",
+        }
+      })
       const dateCutoff = new Date(new Date().valueOf() - 1_000_000)
 
-      return client.syncStream(streamId, dateCutoff).then((_result) => {
+      return client.syncStream(stream, dateCutoff).then((_result) => {
         // TODO - check that `client.manager.sentMessages` contains what you
         // expect
       })

@@ -1,6 +1,7 @@
 import {
   AbstractClient,
   ClientInterface,
+  Stream,
   VerifyConfigurationResult,
 } from "codeclimate-collector-sdk"
 
@@ -10,8 +11,13 @@ export class Client extends AbstractClient implements ClientInterface {
     return Promise.resolve({ isValid: true })
   }
 
-  syncStream(streamId: string | null, earliestDataCutoff: Date): Promise<void> {
-    this.logger.debug(`TODO - implement syncStream. Got ${streamId}, ${earliestDataCutoff}`)
+  discoverStreams(): Promise<void> {
+    this.logger.debug(`TODO - implement discoverStreams.`)
+    return Promise.resolve()
+  }
+
+  syncStream(stream: Stream, earliestDataCutoff: Date): Promise<void> {
+    this.logger.debug(`TODO - implement syncStream. Got ${stream.id}, ${earliestDataCutoff}`)
     return Promise.resolve()
   }
 }
