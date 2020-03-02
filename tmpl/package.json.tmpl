@@ -6,7 +6,8 @@
     "build": "tsc",
     "test": "jest",
     "clean": "rm -rf ./lib/",
-    "prepublishOnly": "{{packageManagerBin}} clean && {{packageManagerBin}} build && {{packageManagerBin}} test"
+    "prepublishOnly": "{{packageManagerBin}} clean && {{packageManagerBin}} build && {{packageManagerBin}} test",
+    "postpublish": "git push && git push --tags"
   },
   "files": [
     "lib/**/*",
