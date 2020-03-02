@@ -51,7 +51,6 @@ export default class CollectorGenerator {
     // by default yarn add foo is ^version in package.json: ^0.0.x isn't a
     // smooth process for upgrading, so in these early days I think we want
     // ~0.0
-    console.log("DEBUG version is ", Version(), "modded version is ", Version().replace(/\.[^\.]+$/, ""))
     this.packageManager.addDependency([`codeclimate-collector-sdk@~${Version().replace(/\.[^\.]+$/, "")}`])
     this.packageManager.addDevDependency([
       "typescript",
