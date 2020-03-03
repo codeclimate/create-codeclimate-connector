@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+
+const ConnectorGenerator = require("../lib/ConnectorGenerator").default
+const instance = new ConnectorGenerator(process.argv.slice(2))
+
+instance.run()
+

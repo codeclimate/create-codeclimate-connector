@@ -3,7 +3,7 @@ import {
   ClientInterface,
   Stream,
   VerifyConfigurationResult,
-} from "codeclimate-collector-sdk"
+} from "codeclimate-connector-sdk"
 
 export class Client extends AbstractClient implements ClientInterface {
   verifyConfiguration(): Promise<VerifyConfigurationResult> {

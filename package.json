@@ -1,7 +1,7 @@
 {
-  "name": "create-codeclimate-collector",
-  "version": "0.0.3",
-  "description": "Scaffold a new Code Climate Collector",
+  "name": "create-codeclimate-connector",
+  "version": "0.0.1",
+  "description": "Scaffold a new Code Climate Connector",
   "license": "AGPL-3.0-only",
   "scripts": {
     "build": "tsc",
@@ -16,7 +16,7 @@
     "README.md",
     "LICENSE"
   ],
-  "bin": "bin/create-codeclimate-collector",
+  "bin": "bin/create-codeclimate-connector",
   "dependencies": {},
   "devDependencies": {
     "@types/jest": "^25.1.3",

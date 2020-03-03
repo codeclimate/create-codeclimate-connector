@@ -6,29 +6,29 @@ import Version from "./Version"
 import { CopyTemplate } from "./CopyTemplate"
 import { PackageManager, findPackageManager } from "./PackageManager"
 
-export default class CollectorGenerator {
+export default class ConnectorGenerator {
   packageManager: PackageManager
 
   constructor(public argv: string[]) {
     this.packageManager = findPackageManager(this.packageName)
   }
 
-  get collectorSlug(): string {
+  get connectorSlug(): string {
     if (typeof this.argv[0] !== "string") {
-      throw new TypeError("You must provide a slug for your collector")
+      throw new TypeError("You must provide a slug for your connector")
     }
 
     return this.argv[0]
   }
 
   get packageName(): string {
-    return `codeclimate-collector-${this.collectorSlug}`
+    return `codeclimate-connector-${this.connectorSlug}`
   }
 
   get templateReplacements(): Map<string, string> {
     return new Map([
       ["packageName", this.packageName],
-      ["collectorSlug", this.collectorSlug],
+      ["connectorSlug", this.connectorSlug],
       ["packageManagerBin", this.packageManager.binName],
     ])
   }
@@ -51,7 +51,7 @@ export default class CollectorGenerator {
     // by default yarn add foo is ^version in package.json: ^0.0.x isn't a
     // smooth process for upgrading, so in these early days I think we want
     // ~0.0
-    this.packageManager.addDependency([`codeclimate-collector-sdk@~${Version().replace(/\.[^\.]+$/, "")}`])
+    this.packageManager.addDependency([`codeclimate-connector-sdk@~${Version().replace(/\.[^\.]+$/, "")}`])
     this.packageManager.addDevDependency([
       "typescript",
       "jest",
@@ -67,7 +67,7 @@ export default class CollectorGenerator {
     }
 
     // all done
-    console.log(`All done! Your new collector is started in ./${this.packageName}`)
+    console.log(`All done! Your new connector is started in ./${this.packageName}`)
   }
 
   // walk a directory tree. call `fn` for each regular file entry

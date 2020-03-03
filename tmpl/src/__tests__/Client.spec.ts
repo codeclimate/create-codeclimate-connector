@@ -1,9 +1,9 @@
-import { Stream } from "codeclimate-collector-sdk"
+import { Stream } from "codeclimate-connector-sdk"
 import {
   buildFakeLogger,
   buildFakeRecordProducer,
   buildFakeStateManager,
-} from "codeclimate-collector-sdk/lib/TestHelpers"
+} from "codeclimate-connector-sdk/lib/TestHelpers"
 
 import { Client } from "../Client"
 
