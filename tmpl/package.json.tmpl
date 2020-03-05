@@ -1,0 +1,21 @@
+{
+  "name": "{{packageName}}",
+  "version": "0.0.1",
+  "description": "Code Climate Connector: {{connectorSlug}}",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "clean": "rm -rf ./lib/",
+    "prepublishOnly": "{{packageManagerBin}} clean && {{packageManagerBin}} build && {{packageManagerBin}} test",
+    "postpublish": "git push && git push --tags"
+  },
+  "files": [
+    "lib/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "lib/index.js",
+  "dependencies": {},
+  "devDependencies": {}
+}
+
